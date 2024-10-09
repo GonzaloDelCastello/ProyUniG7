@@ -5,7 +5,9 @@
 package Vistas;
 
 import AccesoADatos.AlumnoData;
+import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -76,12 +78,32 @@ public class Alumno extends javax.swing.JInternalFrame {
         });
 
         jButton_Nuevo.setText("Nuevo");
+        jButton_Nuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_NuevoActionPerformed(evt);
+            }
+        });
 
         jButton_Salir.setText("Salir");
+        jButton_Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_SalirActionPerformed(evt);
+            }
+        });
 
         jButton_Guardar.setText("Guardar");
+        jButton_Guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_GuardarActionPerformed(evt);
+            }
+        });
 
         jButton_Eliminar.setText("Eliminar");
+        jButton_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_EliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,10 +198,8 @@ public class Alumno extends javax.swing.JInternalFrame {
                 jRadioButton_Estado.setSelected(alumnoActual.isActivo());
                 LocalDate lc = alumnoActual.getFechaNac();
                 
-                java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault().toString()));
-                
-                
-                
+                java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault().toString()).toinstant());
+                jDateChooser_Nacimiento.setDate(date);  
             }
         } catch (NumberFormatException e) {
             JOptionPane.showConfirmDialog(this, "Debe ingresar un formato de número válido");
@@ -191,7 +211,70 @@ public class Alumno extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_DocumentoActionPerformed
 
+    private void jButton_NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_NuevoActionPerformed
+        // TODO add your handling code here:
+        limpiarCampos();
+        alumnoActual = null;
+    }//GEN-LAST:event_jButton_NuevoActionPerformed
 
+    private void jButton_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GuardarActionPerformed
+        // TODO add your handling code here:
+        //extraemos los datos de los campos, comprobamos que el dni es un formato válido y los campos no están vaciós
+        try {
+            Integer dni = Integer.parseInt(jTextField_Documento.getText());
+            String nombre = jTextField_Nombre.getText();
+            String apellido = jTextField_Apellido.getText();
+            if (nombre.isEmpty() || apellido.isEmpty()) {
+                JOptionPane.showConfirmDialog(this, "No puede haber campos vacios");
+                return;                
+            }
+            
+            java.util.Date fecha = jDateChooser_Nacimiento.getDate();
+            LocalDate fecha2 = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            Boolean estado = jRadioButton_Estado.isSelected();
+            
+            if (alumnoActual == null) {
+                alumnoActual = new Alumno(dni, apellido, nombre, fecha2, estado);  
+                aluData.guardarAlumno(alumnoActual);
+            } else {
+                alumnoActual.setDni(dni);
+                alumnoActual.setNombre(nombre);
+                alumnoActual.setApellido(apellido);
+                alumnoActual.setFechaNac(fecha2);
+                aluData.modificarAlumno(alumnoActual);
+                
+            }
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showConfirmDialog(this, "Debe ingresar un formato de número válido");
+        }
+    }//GEN-LAST:event_jButton_GuardarActionPerformed
+
+    private void jButton_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EliminarActionPerformed
+        // TODO add your handling code here:
+        if (alumnoActual != null) {
+            aluData.eliminarAlumno(alumnoActual.getIdAlumno);
+            alumnoActual = null;
+            limpiarCampos();            
+        } else{
+            JOptionPane.showConfirmDialog(this, "No hay alumno seleccionado");
+        }
+    }//GEN-LAST:event_jButton_EliminarActionPerformed
+
+    private void jButton_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton_SalirActionPerformed
+
+    private void limpiarCampos(){
+        jTextField_Documento.setText("");
+        jTextField_Nombre.setText("");
+        jTextField_Apellido.setText("");
+        jRadioButton_Estado.setSelected(true);
+        jDateChooser_Nacimiento.setDate(new Date());
+    } 
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_Buscar;
     private javax.swing.JButton jButton_Eliminar;
