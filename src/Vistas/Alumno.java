@@ -4,11 +4,17 @@
  */
 package Vistas;
 
+import AccesoADatos.AlumnoData;
+import java.time.ZoneId;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author bruno
  */
 public class Alumno extends javax.swing.JInternalFrame {
+    private AlumnoData aluData = new AlumnoData();
+    private Alumno alumnoActual = null;
 
     /**
      * Creates new form Alumno
@@ -41,6 +47,7 @@ public class Alumno extends javax.swing.JInternalFrame {
         jButton_Guardar = new javax.swing.JButton();
         jButton_Eliminar = new javax.swing.JButton();
         jRadioButton_Estado = new javax.swing.JRadioButton();
+        jDateChooser_Nacimiento = new com.toedter.calendar.JDateChooser();
 
         jLabel_Alumno.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel_Alumno.setText("Alumno");
@@ -82,12 +89,15 @@ public class Alumno extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(76, 76, 76)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel_Apellido)
                     .addComponent(jLabel_Documento)
                     .addComponent(jLabel_Nombre)
                     .addComponent(jLabel_Estado)
-                    .addComponent(jLabel_FechaNacimiento)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel_FechaNacimiento)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jDateChooser_Nacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(128, 128, 128)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,11 +114,11 @@ public class Alumno extends javax.swing.JInternalFrame {
                 .addComponent(jButton_Nuevo)
                 .addGap(18, 18, 18)
                 .addComponent(jButton_Eliminar)
-                .addGap(21, 21, 21)
+                .addGap(18, 18, 18)
                 .addComponent(jButton_Guardar)
                 .addGap(18, 18, 18)
                 .addComponent(jButton_Salir)
-                .addGap(86, 86, 86))
+                .addGap(89, 89, 89))
             .addGroup(layout.createSequentialGroup()
                 .addGap(176, 176, 176)
                 .addComponent(jLabel_Alumno)
@@ -138,8 +148,10 @@ public class Alumno extends javax.swing.JInternalFrame {
                         .addGap(26, 26, 26)
                         .addComponent(jRadioButton_Estado))
                     .addComponent(jLabel_Estado))
-                .addGap(40, 40, 40)
-                .addComponent(jLabel_FechaNacimiento)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel_FechaNacimiento)
+                    .addComponent(jDateChooser_Nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Guardar)
@@ -154,6 +166,25 @@ public class Alumno extends javax.swing.JInternalFrame {
 
     private void jButton_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BuscarActionPerformed
         // TODO add your handling code here:
+        
+        try {
+            Integer dni = Integer.parseInt(jTextField_Documento.getText());
+            alumnoActual = aluData.buscarAlumnoPorDni(dni);
+            if (alumnoActual!=null) {
+                jTextField_Apellido.setText(alumnoActual.getApellido());
+                jTextField_Nombre.setText(alumnoActual.getNombre());
+                jRadioButton_Estado.setSelected(alumnoActual.isActivo());
+                LocalDate lc = alumnoActual.getFechaNac();
+                
+                java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault().toString()));
+                
+                
+                
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showConfirmDialog(this, "Debe ingresar un formato de número válido");
+        }
+        
     }//GEN-LAST:event_jButton_BuscarActionPerformed
 
     private void jTextField_DocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_DocumentoActionPerformed
@@ -167,6 +198,7 @@ public class Alumno extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton_Guardar;
     private javax.swing.JButton jButton_Nuevo;
     private javax.swing.JButton jButton_Salir;
+    private com.toedter.calendar.JDateChooser jDateChooser_Nacimiento;
     private javax.swing.JLabel jLabel_Alumno;
     private javax.swing.JLabel jLabel_Apellido;
     private javax.swing.JLabel jLabel_Documento;

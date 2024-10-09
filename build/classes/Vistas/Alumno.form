@@ -21,12 +21,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabel_Apellido" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel_Documento" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel_Nombre" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel_Estado" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel_FechaNacimiento" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel_FechaNacimiento" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jDateChooser_Nacimiento" max="32767" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="128" pref="128" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -48,11 +52,11 @@
               <Component id="jButton_Nuevo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButton_Eliminar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButton_Guardar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButton_Salir" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
@@ -91,8 +95,11 @@
                   </Group>
                   <Component id="jLabel_Estado" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="jLabel_FechaNacimiento" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jLabel_FechaNacimiento" min="-2" max="-2" attributes="0"/>
+                  <Component id="jDateChooser_Nacimiento" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton_Guardar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -177,6 +184,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButton_Estado">
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser_Nacimiento">
     </Component>
   </SubComponents>
 </Form>
