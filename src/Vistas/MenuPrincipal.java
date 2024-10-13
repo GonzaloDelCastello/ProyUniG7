@@ -132,7 +132,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.removeAll();
         escritorio.repaint();
         
-        Alumno alumn = new Alumno();
+        VistaAlumno alumn = new VistaAlumno();
         alumn.setVisible(true);
         
         escritorio.add(alumn);
@@ -145,7 +145,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.removeAll();
         escritorio.repaint();
         
-        Inscripciones inscrip = new Inscripciones();
+        VistaInscripciones inscrip = new VistaInscripciones();
         inscrip.setVisible(true);
         
         escritorio.add(inscrip);

@@ -19,7 +19,7 @@ import javax.swing.text.DefaultEditorKit;
  *
  * @author bruno
  */
-public class Inscripciones extends javax.swing.JInternalFrame {
+public class VistaInscripciones extends javax.swing.JInternalFrame {
     
     private ArrayList<Materia> lista_materia;
     private ArrayList<Alumno> lista_alumno;
@@ -34,11 +34,11 @@ public class Inscripciones extends javax.swing.JInternalFrame {
     /**
      * Creates new form Inscripciones
      */
-    public Inscripciones() {
+    public VistaInscripciones() {
         initComponents();
         
         aData = new AlumnoData();
-        lista_alumno = (ArrayList<Alumno>)aData.listarAlumnos();
+        //lista_alumno = (ArrayList<Alumno>)aData.listarAlumnos();
         modelo = new DefaultTableModel();
         iData = new InscripcionData();
         mData = new MateriaData();
@@ -207,7 +207,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
             Materia materia = new Materia(nombreMat, añoMat, true);
             
             Inscripcion inscripcion = new Inscripcion(alum, materia, 0);
-            inscData.guardarInscripcion(inscripcion);
+            iData.guardarInscripcion(inscripcion);
             borrarFila();            
          } else {
             JOptionPane.showConfirmDialog(this, "Debe seleccionar una materia");            
@@ -222,7 +222,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
             Alumno alum =(Alumno) jComboBox_Alumno.getSelectedItem();
             int idMat = (int) modelo.getValueAt(filaSelec, 0);                      
             
-            inscData.borrarInscripcion(alum.getIdAlumno(), idMat);
+        //    iData.borrarInscripcion(alum.getIdAlumno(), idMat);
             borrarFila();      
         } else {
             JOptionPane.showConfirmDialog(this, "Debe seleccionar una materia");
@@ -280,7 +280,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
     
     private void cargarNoInscriptas(){        
         Alumno selec = (Alumno)jComboBox_Alumno.getSelectedItem();
-        lista_materia = (ArrayList) iData.obtenerMateriasNoCursadas(selec.getIdAlumno());
+        //lista_materia = (ArrayList) iData.obtenerMateriasNoCursadas(selec.getIdAlumno());
         
         for (Materia materia : lista_materia) {
             modelo.addRow(new Object[] {materia.getIdMateria(), materia.getNombre(), materia.getAnioMateria()});            
@@ -289,7 +289,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
     
     private void cargarInscriptas(){        
         Alumno selec = (Alumno)jComboBox_Alumno.getSelectedItem();
-        lista_materia = (ArrayList) iData.obtenerMateriasCursadas(selec.getIdAlumno());
+        //lista_materia = (ArrayList) iData.obtenerMateriasCursadas(selec.getIdAlumno());
         
         for (Materia materia : lista_materia) {
             modelo.addRow(new Object[] {materia.getIdMateria(), materia.getNombre(), materia.getAnioMateria()});            

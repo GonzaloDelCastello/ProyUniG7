@@ -5,6 +5,7 @@
 package Vistas;
 
 import AccesoADatos.AlumnoData;
+import Entidades.Alumno;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -14,14 +15,14 @@ import javax.swing.JOptionPane;
  *
  * @author bruno
  */
-public class Alumno extends javax.swing.JInternalFrame {
+public class VistaAlumno extends javax.swing.JInternalFrame {
     private AlumnoData aluData = new AlumnoData();
     private Alumno alumnoActual = null;
 
     /**
      * Creates new form Alumno
      */
-    public Alumno() {
+    public VistaAlumno() {
         initComponents();
     }
 
@@ -198,7 +199,7 @@ public class Alumno extends javax.swing.JInternalFrame {
                 jRadioButton_Estado.setSelected(alumnoActual.isActivo());
                 LocalDate lc = alumnoActual.getFechaNac();
                 
-                java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault().toString()).toinstant());
+                Date date = Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 jDateChooser_Nacimiento.setDate(date);  
             }
         } catch (NumberFormatException e) {
@@ -221,7 +222,8 @@ public class Alumno extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         //extraemos los datos de los campos, comprobamos que el dni es un formato válido y los campos no están vaciós
         try {
-            Integer dni = Integer.parseInt(jTextField_Documento.getText());
+            Integer dni1 = Integer.parseInt(jTextField_Documento.getText());
+            int dni = dni1;
             String nombre = jTextField_Nombre.getText();
             String apellido = jTextField_Apellido.getText();
             if (nombre.isEmpty() || apellido.isEmpty()) {
@@ -253,7 +255,7 @@ public class Alumno extends javax.swing.JInternalFrame {
     private void jButton_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EliminarActionPerformed
         // TODO add your handling code here:
         if (alumnoActual != null) {
-            aluData.eliminarAlumno(alumnoActual.getIdAlumno);
+            aluData.eliminarAlumno(alumnoActual.getIdAlumno());
             alumnoActual = null;
             limpiarCampos();            
         } else{

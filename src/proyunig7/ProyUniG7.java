@@ -8,6 +8,7 @@ import AccesoADatos.AlumnoData;
 import AccesoADatos.Conexion;
 //import AccesoADatos.Conexion;
 import Entidades.Alumno;
+import Vistas.MenuPrincipal;
 import java.sql.Connection;
 //import java.sql.*;
 import java.time.LocalDate;
@@ -26,8 +27,11 @@ public class ProyUniG7 {
     public static void main(String[] args) {
         
         Connection con = (Connection) Conexion.getConexion();
-        Alumno santi =new Alumno(42065601,"Amaya","Santiago",LocalDate.of(1999, 7, 3),true);
-        AlumnoData alu=new AlumnoData();
+        
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.setVisible(true);
+        /*Alumno santi =new Alumno(42065601,"Amaya","Santiago",LocalDate.of(1999, 7, 3),true);
+        AlumnoData alu=new AlumnoData();*/
         
         //ESTE metodo es paraguardar un alumno manualmente
         //alu.guardarAlumno(santi);
