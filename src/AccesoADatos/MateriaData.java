@@ -7,6 +7,7 @@ package AccesoADatos;
 import Entidades.Materia;
 import org.mariadb.jdbc.Connection;
 import java.sql.*;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -43,6 +44,40 @@ public class MateriaData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al cargar materia");
         }
+    }
+    
+    public Materia buscarMateria(int id){
+        
+        String sql = "SELECT `idMateria`, `nombre`, `anio`, `estado` FROM `materia` WHERE `idMateria`=?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1,id); 
+            ps.executeUpdate();
+
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                materia.setIdMateria(rs.getInt(1));
+                JOptionPane.showMessageDialog(null, "MATERIA CARGADA");
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al cargar materia");
+        }
+        return null;
+    }
+    
+    public void modificarMateria(Materia materia){
+        
+    }
+    
+    public void eliminarMateria(int id){
+        
+    }
+    
+    public List<Materia> listarMaterias(){
+        return null;
     }
     }
 
