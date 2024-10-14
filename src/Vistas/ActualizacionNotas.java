@@ -55,6 +55,11 @@ public class ActualizacionNotas extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable_Inscripcion);
 
         jButton_Guardar.setText("Guardar");
+        jButton_Guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_GuardarActionPerformed(evt);
+            }
+        });
 
         jButton_Salir.setText("Salir");
         jButton_Salir.addActionListener(new java.awt.event.ActionListener() {
@@ -112,6 +117,10 @@ public class ActualizacionNotas extends javax.swing.JInternalFrame {
     private void jButton_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SalirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_SalirActionPerformed
+
+    private void jButton_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_GuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

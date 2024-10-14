@@ -9,6 +9,7 @@ import org.mariadb.jdbc.Connection;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,19 +23,26 @@ public class MateriaData {
         con = (Connection) Conexion.getConexion();
     }
     
-    public void guardarMateria(Materia materia){
-        String sql = "INSERT INTO `materia`(`idMateria`, `nombre`, `anio`, `estado`)" 
-                + "VALUES ('[value-1]','Lengua','2024','TRUE')";
-        
-        PreparedStatement ps = null;
-        
+    public void guardarMateria(Materia materia) {
+        String sql = "INSERT INTO materia(nombre, anio, estado) VALUES (?, ?, ?)";
+
         try {
-            ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, materia.getNombre());
+            ps.setInt(2, materia.getAnioMateria());
+            ps.setBoolean(3, materia.isActivo());
             ps.executeUpdate();
+
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                materia.setIdMateria(rs.getInt(1));
+                JOptionPane.showMessageDialog(null, "MATERIA CARGADA");
+            }
+            ps.close();
+
         } catch (SQLException ex) {
-            System.out.println("Error de coneccion");
+            JOptionPane.showMessageDialog(null, "Error al cargar materia");
         }
-        
     }
-}
+    }
 

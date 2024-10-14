@@ -6,8 +6,12 @@ package proyunig7;
 
 import AccesoADatos.AlumnoData;
 import AccesoADatos.Conexion;
+import AccesoADatos.InscripcionData;
+import AccesoADatos.MateriaData;
 //import AccesoADatos.Conexion;
 import Entidades.Alumno;
+import Entidades.Inscripcion;
+import Entidades.Materia;
 import Vistas.MenuPrincipal;
 import java.sql.Connection;
 //import java.sql.*;
@@ -30,11 +34,11 @@ public class ProyUniG7 {
         
         MenuPrincipal menu = new MenuPrincipal();
         menu.setVisible(true);
-        /*Alumno santi =new Alumno(42065601,"Amaya","Santiago",LocalDate.of(1999, 7, 3),true);
-        AlumnoData alu=new AlumnoData();*/
+        Alumno santi =new Alumno(42065601,"Amayaaa","Santiago",LocalDate.of(1999, 7, 3),true);
+        AlumnoData alu=new AlumnoData();
         
         //ESTE metodo es paraguardar un alumno manualmente
-        //alu.guardarAlumno(santi);
+        alu.guardarAlumno(santi);
         
         //Este metodo es para modificar un alumno manualmente
         //alu.modificarAlumno(santi);
@@ -63,7 +67,17 @@ public class ProyUniG7 {
             System.out.println(alumno.getNombre());
             System.out.println(alumno.getFechaNac());
         }*/
+       
+       // *****PRUEBAS*******
+       //Cargo para probar una materia
+        Materia h = new Materia("HISTORIA", 2024,true);
+        MateriaData mate = new MateriaData();
+        mate.guardarMateria(h);
+        //INSCRIBIR ALUMNO
+        Inscripcion id = new Inscripcion(santi, h, 10);
+        InscripcionData in = new InscripcionData ();
         
+        in.guardarInscripcion(id);
             
     }
     

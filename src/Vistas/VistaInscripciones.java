@@ -38,7 +38,7 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
         initComponents();
         
         aData = new AlumnoData();
-        //lista_alumno = (ArrayList<Alumno>)aData.listarAlumnos();
+        lista_alumno = (ArrayList<Alumno>)aData.listarAlumnos();
         modelo = new DefaultTableModel();
         iData = new InscripcionData();
         mData = new MateriaData();
@@ -127,6 +127,11 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
         });
 
         jButton_Salir.setText("Salir");
+        jButton_Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_SalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -249,6 +254,10 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
         jButton_Inscribir.setEnabled(true);
         jButton_Anular.setEnabled(false);  
     }//GEN-LAST:event_jRadioButton_MateriasNoActionPerformed
+
+    private void jButton_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton_SalirActionPerformed
 
     //para cargar el combo box
     private void cargaAlumnos(){
