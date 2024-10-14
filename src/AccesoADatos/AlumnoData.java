@@ -154,7 +154,7 @@ public class AlumnoData {
      
     
     public List<Alumno>  listarAlumnos(){
-        String sql="SELECT dni,apellido,nombre,fechaNacimiento FROM alumno WHERE activo =1 ";
+        String sql="SELECT idAlumno, dni,apellido,nombre,fechaNacimiento FROM alumno WHERE activo =1 ";
         ArrayList<Alumno> alumnos = new ArrayList<>();
         try {
             PreparedStatement ps=con.prepareStatement(sql);
@@ -174,7 +174,7 @@ public class AlumnoData {
             ps.close();
                 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error hacer la lista");
+            JOptionPane.showMessageDialog(null, "Error hacer la lista" + ex.getMessage());
         }
        return alumnos;
     }
