@@ -5,6 +5,7 @@
 package Vistas;
 
 import AccesoADatos.AlumnoData;
+import AccesoADatos.InscripcionData;
 import AccesoADatos.MateriaData;
 import Entidades.Alumno;
 import Entidades.Inscripcion;
@@ -22,9 +23,9 @@ public class ConsultaDeAlumnoPorMateria extends javax.swing.JInternalFrame {
     private ArrayList<Materia> lista_materia;
     private ArrayList<Alumno> lista_alumno;
     
+    private InscripcionData iData;
     private MateriaData mData;
     private AlumnoData aData;
-    private Inscripcion iData;
     
     private DefaultTableModel modelo;
 
@@ -34,10 +35,11 @@ public class ConsultaDeAlumnoPorMateria extends javax.swing.JInternalFrame {
     public ConsultaDeAlumnoPorMateria() {
         initComponents();
        
-        aData = new AlumnoData();
-        lista_materia = (ArrayList<Materia>)mData.listarMaterias();
         modelo = new DefaultTableModel();
+        aData = new AlumnoData();
         mData = new MateriaData();  
+        iData = new InscripcionData();
+        lista_materia = (ArrayList<Materia>)mData.listarMaterias();   
         
         armarTabla();
         cargaMaterias();
@@ -187,10 +189,10 @@ public class ConsultaDeAlumnoPorMateria extends javax.swing.JInternalFrame {
     //carga los alumnos en la tabla
     private void cargarAlumnos(){        
         Materia selec = (Materia)jComboBox_Materias.getSelectedItem();
-        //lista_alumno = (ArrayList) iData.obtenerAlumnosPorMateria(selec.getIdMateria());
+        lista_alumno = (ArrayList) iData.obtenerAlumnoXMateria(selec.getIdMateria());
         
         for (Alumno alum : lista_alumno) {
-            modelo.addRow(new Object[] {alum.getIdAlumno(), alum.getDni(), alum.getApellido(), alum.getNombre()});            
+            modelo.addRow(new Object[] {alum.getIdAlumno(), alum.getFechaNac(), alum.getApellido(), alum.getNombre()});            
         }        
     }    
 
