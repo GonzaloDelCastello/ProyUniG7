@@ -33,18 +33,18 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                          <Component id="jTextField_Año" min="-2" pref="164" max="-2" attributes="0"/>
+                                          <Component id="JAño" min="-2" pref="164" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton_Estado" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rbtestado" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jButton_Nuevo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnNuevo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="jButton_Eliminar" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEliminar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                   <Component id="jButton_Guardar" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -56,8 +56,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextField_Codigo" pref="164" max="32767" attributes="0"/>
-                                  <Component id="jTextField_Nombre" max="32767" attributes="0"/>
+                                  <Component id="codigo" pref="164" max="32767" attributes="0"/>
+                                  <Component id="Jnombre" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -84,30 +84,30 @@
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel_Codigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField_Codigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="codigo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel_Nombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField_Nombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Jnombre" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel_Año" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField_Año" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JAño" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabel_Estado" min="-2" max="-2" attributes="0"/>
-                  <Component id="jRadioButton_Estado" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbtestado" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton_Nuevo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton_Salir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton_Guardar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton_Eliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="78" max="32767" attributes="0"/>
           </Group>
@@ -143,19 +143,19 @@
         <Property name="text" type="java.lang.String" value="Estado:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField_Codigo">
+    <Component class="javax.swing.JTextField" name="codigo">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_CodigoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codigoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField_A&#xf1;o">
+    <Component class="javax.swing.JTextField" name="JA&#xf1;o">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_A&#xf1;oActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JA&#xf1;oActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField_Nombre">
+    <Component class="javax.swing.JTextField" name="Jnombre">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_NombreActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JnombreActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton_Buscar">
@@ -166,10 +166,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_BuscarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton_Nuevo">
+    <Component class="javax.swing.JButton" name="btnNuevo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nuevo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNuevoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton_Guardar">
       <Properties>
@@ -179,17 +182,23 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_GuardarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton_Eliminar">
+    <Component class="javax.swing.JButton" name="btnEliminar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton_Salir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_SalirActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton_Estado">
+    <Component class="javax.swing.JRadioButton" name="rbtestado">
     </Component>
   </SubComponents>
 </Form>

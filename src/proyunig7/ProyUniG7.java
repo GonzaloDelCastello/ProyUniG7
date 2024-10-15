@@ -78,6 +78,34 @@ public class ProyUniG7 {
         InscripcionData in = new InscripcionData ();
         
         in.guardarInscripcion(id);*/
+        
+         
+        //CLASE MateriaData
+   //guardar Materias
+    Materia nuevaMateria = new Materia ("Web II" , 2024 , true);
+    MateriaData materiaData = new MateriaData();
+    //materiaData.guardarMateria(nuevaMateria);
+    
+    //materiaData.eliminarMateria(4);
+    //materiaData.modificarMateria(nuevaMateria);
+    
+    //Lista de todas las materias
+     /* try {
+        List<Materia> materias = materiaData.listarMaterias();
+        if (materias.isEmpty()) {
+            System.out.println("No hay materias ");
+        } else {
+            for (Materia materia : materias) {
+                System.out.println("ID: " + materia.getIdMateria());
+                System.out.println("Año: " + materia.getAnioMateria());
+                System.out.println("Nombre: " + materia.getNombre());
+            }
+        }
+    } catch (Exception e) {
+        System.out.println("Error al listar materias: " + e.getMessage());
+    }*/
+            
+
             
     }
     
