@@ -15,11 +15,12 @@ import javax.swing.JOptionPane;
 public class VistaMaterias extends javax.swing.JInternalFrame {
 
    
-    private MateriaData materiaData;
-    public VistaMaterias() {
-        materiaData = new MateriaData();
+    private MateriaData mData;
+    
+    public VistaMaterias() {        
 
         initComponents();
+        mData = new MateriaData();
     }
 
     /**
@@ -205,8 +206,8 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
          try {
         int idMateria = Integer.parseInt(codigo.getText()); 
 
-        MateriaData materiaData = new MateriaData(); // 
-        Materia materia = materiaData.buscarMateria(idMateria); 
+        MateriaData mData = new MateriaData(); // 
+        Materia materia = mData.buscarMateria(idMateria); 
 
         if (materia != null) {
            
@@ -235,12 +236,12 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
             int anio = Integer.parseInt(JAño.getText());
             boolean estado = rbtestado.isSelected();
             Materia materia = new Materia(id,nombre,anio,estado);
-            if (materiaData.buscarMateria(id)== null) {
-                materiaData.guardarMateria(materia);
+            if (mData.buscarMateria(id)== null) {
+                mData.guardarMateria(materia);
                 JOptionPane.showMessageDialog(this, "Materia Guardado");
                 
             } else {
-                materiaData.modificarMateria(materia);
+                mData.modificarMateria(materia);
                 JOptionPane.showMessageDialog(this, "Materia modificada");
             }
             

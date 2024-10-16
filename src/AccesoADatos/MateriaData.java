@@ -62,7 +62,7 @@ public class MateriaData {
                materia.setIdMateria(rs.getInt("idMateria"));
                materia.setNombre(rs.getString("nombre"));
                materia.setAnioMateria(rs.getInt("anio"));
-               materia.setActivo(rs.getBoolean("Activo"));
+               materia.setActivo(rs.getBoolean("estado"));
             }
            
 
