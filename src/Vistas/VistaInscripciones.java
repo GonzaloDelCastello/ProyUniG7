@@ -37,15 +37,13 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
     public VistaInscripciones() {
         initComponents();
         
-        aData = new AlumnoData();
-        lista_alumno = (ArrayList<Alumno>)aData.listarAlumnos();
         modelo = new DefaultTableModel();
         iData = new InscripcionData();
         mData = new MateriaData();
+        aData = new AlumnoData();
+        lista_alumno = (ArrayList<Alumno>)aData.listarAlumnos();        
         
-        cargaAlumnos();
-        
-        
+        cargaAlumnos();     
     }
 
     /**
@@ -227,7 +225,7 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
             Alumno alum =(Alumno) jComboBox_Alumno.getSelectedItem();
             int idMat = (int) modelo.getValueAt(filaSelec, 0);                      
             
-        //    iData.borrarInscripcion(alum.getIdAlumno(), idMat);
+            iData.borrarInscripcionMateriaAlumno(alum.getIdAlumno(), idMat);
             borrarFila();      
         } else {
             JOptionPane.showConfirmDialog(this, "Debe seleccionar una materia");
@@ -289,7 +287,7 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
     
     private void cargarNoInscriptas(){        
         Alumno selec = (Alumno)jComboBox_Alumno.getSelectedItem();
-        //lista_materia = (ArrayList) iData.obtenerMateriasNoCursadas(selec.getIdAlumno());
+        lista_materia = (ArrayList) iData.obtenerMateriasNoCursadas(selec.getIdAlumno());
         
         for (Materia materia : lista_materia) {
             modelo.addRow(new Object[] {materia.getIdMateria(), materia.getNombre(), materia.getAnioMateria()});            
@@ -298,7 +296,7 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
     
     private void cargarInscriptas(){        
         Alumno selec = (Alumno)jComboBox_Alumno.getSelectedItem();
-        //lista_materia = (ArrayList) iData.obtenerMateriasCursadas(selec.getIdAlumno());
+        lista_materia = (ArrayList) iData.obtenerMateriasCursadas(selec.getIdAlumno());
         
         for (Materia materia : lista_materia) {
             modelo.addRow(new Object[] {materia.getIdMateria(), materia.getNombre(), materia.getAnioMateria()});            

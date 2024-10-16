@@ -180,7 +180,7 @@ public class InscripcionData {
     }
         
     
-    void borrarInscripcionMateriaAlumno(int idAlumno, int idMateria){
+    public void borrarInscripcionMateriaAlumno(int idAlumno, int idMateria){
 
         String sql="DELETE FROM inscripcion WHERE idAlumno = ? and idMateria = ?";
     try {
@@ -202,8 +202,8 @@ public class InscripcionData {
     
    public List <Alumno> obtenerAlumnoXMateria(int idMateria){
         ArrayList<Alumno> alumnos= new ArrayList<>();
-        String sql="SELECT a.idAlumno, dni, nombre, apellido, fechaNacimiento, estado"
-                +" FROM inscripcion i, alumno a WHERE i.idAlumno = a.idAlumno AND idMateria = ? AND a.estado = 1";
+        String sql="SELECT a.idAlumno, dni, nombre, apellido, fechaNacimiento, activo"
+                +" FROM inscripcion i, alumno a WHERE i.idAlumno = a.idAlumno AND i.idMateria = ? AND a.activo = 1";
     try {
         PreparedStatement ps=con.prepareStatement(sql);
         ps.setInt(1, idMateria);
@@ -211,12 +211,12 @@ public class InscripcionData {
         while(rs.next()){
             Alumno alumno=new Alumno();
             alumno.setIdAlumno(rs.getInt("idAlumno"));
+            alumno.setDni(rs.getInt("dni"));
             alumno.setApellido(rs.getString("apellido"));
             alumno.setNombre(rs.getString("nombre"));
             alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
-            alumno.setActivo(rs.getBoolean("estado"));
+            alumno.setActivo(rs.getBoolean("activo"));
             alumnos.add(alumno);
-
         }
         ps.close();
     } catch (SQLException ex) {
