@@ -192,7 +192,7 @@ public class ConsultaDeAlumnoPorMateria extends javax.swing.JInternalFrame {
         lista_alumno = (ArrayList) iData.obtenerAlumnoXMateria(selec.getIdMateria());
         
         for (Alumno alum : lista_alumno) {
-            modelo.addRow(new Object[] {alum.getIdAlumno(), alum.getFechaNac(), alum.getApellido(), alum.getNombre()});            
+            modelo.addRow(new Object[] {alum.getIdAlumno(), alum.getDni(), alum.getApellido(), alum.getNombre()});            
         }        
     }    
 
