@@ -234,7 +234,7 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
     boolean estado = rbtestado.isSelected();
     int anio;
 
-    // Validar que el año sea un número válido
+    
     try {
         anio = Integer.parseInt(JAño.getText());
     } catch (NumberFormatException e) {
@@ -243,23 +243,23 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
         return;
     }
 
-    // Verificar si estamos creando una nueva materia o modificando una existente
+    //esto verifica si es una modificacion o se guarda una materia nuevo
     if (codigo.getText().isEmpty()) {
-        // **Nueva materia**
+        
         Materia nuevaMateria = new Materia(nombre, anio, estado);
         mData.guardarMateria(nuevaMateria);
 
-        // Mostrar la ID generada en el campo de código
+       
         codigo.setText(String.valueOf(nuevaMateria.getIdMateria()));
-        JOptionPane.showMessageDialog(this, "Materia guardada exitosamente.");
+        JOptionPane.showMessageDialog(this, "Materia guardada ");
     } else {
-        // **Modificar materia existente**
+       
         try {
-            int id = Integer.parseInt(codigo.getText());  // Validar ID
+            int id = Integer.parseInt(codigo.getText());  
             Materia materiaExistente = new Materia(id, nombre, anio, estado);
             mData.modificarMateria(materiaExistente);
 
-            JOptionPane.showMessageDialog(this, "Materia modificada exitosamente.");
+            JOptionPane.showMessageDialog(this, "Materia modificada ");
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "El código debe ser un número válido.",
                                           "Error", JOptionPane.ERROR_MESSAGE);

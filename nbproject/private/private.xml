@@ -3,19 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/G:/Mi%20unidad/ULP%20Programacion/Laboratorio%201/TP5/ProyUniG7/src/Entidades/Alumno.java</file>
-            <file>file:/G:/Mi%20unidad/ULP%20Programacion/Laboratorio%201/TP5/ProyUniG7/src/AccesoADatos/InscripcionData.java</file>
-            <file>file:/G:/Mi%20unidad/ULP%20Programacion/Laboratorio%201/TP5/ProyUniG7/src/AccesoADatos/Conexion.java</file>
-            <file>file:/G:/Mi%20unidad/ULP%20Programacion/Laboratorio%201/TP5/ProyUniG7/src/proyunig7/ProyUniG7.java</file>
-            <file>file:/G:/Mi%20unidad/ULP%20Programacion/Laboratorio%201/TP5/ProyUniG7/src/AccesoADatos/MateriaData.java</file>
-            <file>file:/G:/Mi%20unidad/ULP%20Programacion/Laboratorio%201/TP5/ProyUniG7/src/Entidades/Inscripcion.java</file>
-            <file>file:/G:/Mi%20unidad/ULP%20Programacion/Laboratorio%201/TP5/ProyUniG7/src/Vistas/ActualizacionNotas.java</file>
-            <file>file:/G:/Mi%20unidad/ULP%20Programacion/Laboratorio%201/TP5/ProyUniG7/src/AccesoADatos/AlumnoData.java</file>
-            <file>file:/G:/Mi%20unidad/ULP%20Programacion/Laboratorio%201/TP5/ProyUniG7/src/Vistas/Inscripciones.java</file>
-            <file>file:/G:/Mi%20unidad/ULP%20Programacion/Laboratorio%201/TP5/ProyUniG7/src/Vistas/MenuPrincipal.java</file>
-            <file>file:/G:/Mi%20unidad/ULP%20Programacion/Laboratorio%201/TP5/ProyUniG7/src/Vistas/Alumno.java</file>
-            <file>file:/G:/Mi%20unidad/ULP%20Programacion/Laboratorio%201/TP5/ProyUniG7/src/Vistas/Materia.java</file>
-            <file>file:/G:/Mi%20unidad/ULP%20Programacion/Laboratorio%201/TP5/ProyUniG7/src/Vistas/ConsultaDeAlumnoPorMateria.java</file>
+            <file>file:/C:/Users/usuario/Desktop/Ejercicio%20lab%20git/ProyUniG7/src/Entidades/Materia.java</file>
+            <file>file:/C:/Users/usuario/Desktop/Ejercicio%20lab%20git/ProyUniG7/src/Vistas/MenuPrincipal.java</file>
+            <file>file:/C:/Users/usuario/Desktop/Ejercicio%20lab%20git/ProyUniG7/src/proyunig7/ProyUniG7.java</file>
+            <file>file:/C:/Users/usuario/Desktop/Ejercicio%20lab%20git/ProyUniG7/src/Vistas/ConsultaDeAlumnoPorMateria.java</file>
+            <file>file:/C:/Users/usuario/Desktop/Ejercicio%20lab%20git/ProyUniG7/src/Entidades/Alumno.java</file>
+            <file>file:/C:/Users/usuario/Desktop/Ejercicio%20lab%20git/ProyUniG7/src/AccesoADatos/MateriaData.java</file>
+            <file>file:/C:/Users/usuario/Desktop/Ejercicio%20lab%20git/ProyUniG7/src/Entidades/Inscripcion.java</file>
+            <file>file:/C:/Users/usuario/Desktop/Ejercicio%20lab%20git/ProyUniG7/src/Vistas/VistaMaterias.java</file>
         </group>
     </open-files>
 </project-private>
