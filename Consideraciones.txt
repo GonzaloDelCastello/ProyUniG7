@@ -1,0 +1,15 @@
+En este Proyecto nos repartimos las clases con cada uno de los compañeros y cada uno veía que faltaba y si podía ayudar con eso lo hacia y lo subia 
+
+Gonzalo Del Castello el creo el proyecto lo que serian Las carpetas Entidades con sus clases y atributos , AccesoADatos y vistas , como asi también creo la base de datos y también agrego algunos métodos en las clase AlumnoData y MateriaData AccesoaDatos
+
+Bruno Ruarte se encargo de lo que son las Vistas Alumnos y corregir los métodos y funciones de cada botón y estructura de las vistas
+También creo las vista de Consultas 
+
+Carlos Baeza se encargo de las Clases InscripcionData con sus respectivos métodos y las vistasInscripcion agrego cada botón y funcionalidad de esa Vista
+
+Santiago Amaya con Franco Ledezma se encargaron de hacer los métodos MateriaData y hacer la funcionalidad de las VistasMateria para que quedara andando 
+
+al ultimo nos juntamos todos como podíamos porque cada uno trabajaba y no podía con los horarios y veíamos que faltaba y cada uno agregaba lo que parecía necesario y cada uno agregaba métodos que faltaban y veían necesarios
+
+
+
