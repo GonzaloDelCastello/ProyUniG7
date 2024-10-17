@@ -230,28 +230,43 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
 
     private void jButton_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GuardarActionPerformed
         // TODO add your handling code here:
-        try {
-            int id = Integer.parseInt(codigo.getText());
-            String nombre = Jnombre.getText();
-            int anio = Integer.parseInt(JAño.getText());
-            boolean estado = rbtestado.isSelected();
-            Materia materia = new Materia(id,nombre,anio,estado);
-            if (mData.buscarMateria(id)== null) {
-                mData.guardarMateria(materia);
-                JOptionPane.showMessageDialog(this, "Materia Guardado");
-                
-            } else {
-                mData.modificarMateria(materia);
-                JOptionPane.showMessageDialog(this, "Materia modificada");
-            }
-            
-        btnNuevoActionPerformed(evt); 
+         String nombre = Jnombre.getText();
+    boolean estado = rbtestado.isSelected();
+    int anio;
+
+    // Validar que el año sea un número válido
+    try {
+        anio = Integer.parseInt(JAño.getText());
     } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "ingresar un código y año válido");
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al guardar la materia: " + e.getMessage());
+        JOptionPane.showMessageDialog(this, "El año debe ser un número válido.", 
+                                      "Error", JOptionPane.ERROR_MESSAGE);
+        return;
     }
 
+    // Verificar si estamos creando una nueva materia o modificando una existente
+    if (codigo.getText().isEmpty()) {
+        // **Nueva materia**
+        Materia nuevaMateria = new Materia(nombre, anio, estado);
+        mData.guardarMateria(nuevaMateria);
+
+        // Mostrar la ID generada en el campo de código
+        codigo.setText(String.valueOf(nuevaMateria.getIdMateria()));
+        JOptionPane.showMessageDialog(this, "Materia guardada exitosamente.");
+    } else {
+        // **Modificar materia existente**
+        try {
+            int id = Integer.parseInt(codigo.getText());  // Validar ID
+            Materia materiaExistente = new Materia(id, nombre, anio, estado);
+            mData.modificarMateria(materiaExistente);
+
+            JOptionPane.showMessageDialog(this, "Materia modificada exitosamente.");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El código debe ser un número válido.",
+                                          "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    }
+     limpiarCampos();
     }//GEN-LAST:event_jButton_GuardarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
@@ -283,7 +298,7 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
 
     private void jButton_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SalirActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_jButton_SalirActionPerformed
 
 
@@ -305,6 +320,9 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void limpiarCampos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       Jnombre.setText("");
+    JAño.setText("");
+    codigo.setText("");
+    rbtestado.setSelected(false);
     }
 }
