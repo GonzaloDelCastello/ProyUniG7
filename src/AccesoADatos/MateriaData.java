@@ -56,7 +56,7 @@ public class MateriaData {
             ps.setInt(1,id); 
             
 
-           ResultSet rs = ps.getGeneratedKeys();
+           ResultSet rs = ps.executeQuery();
            if (rs.next()) {
                materia = new Materia();
                materia.setIdMateria(rs.getInt("idMateria"));

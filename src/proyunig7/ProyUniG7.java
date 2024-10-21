@@ -34,11 +34,11 @@ public class ProyUniG7 {
         
         MenuPrincipal menu = new MenuPrincipal();
         menu.setVisible(true);
-        //Alumno santi =new Alumno(42065601,"Amayaaa","Santiago",LocalDate.of(1999, 7, 3),true);
-        //AlumnoData alu=new AlumnoData();
+//        Alumno santi =new Alumno(42065601,"Amayaaa","Santiago",LocalDate.of(1999, 7, 3),true);
+//        AlumnoData alu=new AlumnoData();
         
         //ESTE metodo es paraguardar un alumno manualmente
-        //alu.guardarAlumno(santi);
+//        alu.guardarAlumno(santi);
         
         //Este metodo es para modificar un alumno manualmente
         //alu.modificarAlumno(santi);
@@ -70,20 +70,22 @@ public class ProyUniG7 {
        
        // *****PRUEBAS*******
        //Cargo para probar una materia
-        /*Materia h = new Materia("HISTORIA", 2024,true);
-        MateriaData mate = new MateriaData();
-        mate.guardarMateria(h);
-        //INSCRIBIR ALUMNO
-        Inscripcion id = new Inscripcion(santi, h, 10);
-        InscripcionData in = new InscripcionData ();
+//        Materia h = new Materia("HISTORIA", 1,true);
+//        MateriaData mate = new MateriaData();
+//        mate.guardarMateria(h);
+//       
+//        INSCRIBIR ALUMNO
+//        Inscripcion id = new Inscripcion(santi, h, 10);
+//        InscripcionData in = new InscripcionData ();
+//        in.obtenerIncripciones();
         
-        in.guardarInscripcion(id);*/
+//        in.guardarInscripcion(id);
         
          
         //CLASE MateriaData
    //guardar Materias
-    Materia nuevaMateria = new Materia ("Web II" , 2024 , true);
-    MateriaData materiaData = new MateriaData();
+//    Materia nuevaMateria = new Materia ("Web II" , 2024 , true);
+//    MateriaData materiaData = new MateriaData();
     //materiaData.guardarMateria(nuevaMateria);
     
     //materiaData.eliminarMateria(4);
@@ -105,7 +107,10 @@ public class ProyUniG7 {
         System.out.println("Error al listar materias: " + e.getMessage());
     }*/
             
-
+//     for (Alumno alumno: in.obtenerAlumnoXMateria(12)){
+//         System.out.println(alumno.getNombre());
+//     
+//     }
             
     }
     

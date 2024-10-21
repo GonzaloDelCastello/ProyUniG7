@@ -42,7 +42,7 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
         mData = new MateriaData();
         aData = new AlumnoData();
         lista_alumno = (ArrayList<Alumno>)aData.listarAlumnos();        
-        
+        armarTabla();
         cargaAlumnos();     
     }
 
@@ -164,7 +164,7 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addGap(95, 95, 95)
                             .addComponent(jLabel_Formulario))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,7 +207,7 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
             String nombreMat = (String) modelo.getValueAt(filaSelec, 1);
             int añoMat = (int) modelo.getValueAt(filaSelec, 2);
             
-            Materia materia = new Materia(nombreMat, añoMat, true);
+            Materia materia = new Materia(idMat,nombreMat, añoMat, true);
             
             Inscripcion inscripcion = new Inscripcion(alum, materia, 0);
             iData.guardarInscripcion(inscripcion);

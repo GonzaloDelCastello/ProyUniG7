@@ -55,7 +55,7 @@ public class InscripcionData {
     }
     public void actualizarNota(int idAlumno, int idMateria, double nota){
         
-        String sql = "UPDATE incripcion SET nota = ? WHERE idAlumno = ? and idMateria = ?";
+        String sql = "UPDATE inscripcion SET nota = ? WHERE idAlumno = ? and idMateria = ?";
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setDouble(1, nota);
@@ -90,6 +90,9 @@ public class InscripcionData {
             insc.setNota(rs.getInt("nota"));
             cursadas.add(insc);           //guardo la inscripcion en el arraylist  
 
+        }
+        if (cursadas.isEmpty()) {
+            System.out.println("No se encontraron inscripciones.");
         }
         ps.close();
 
@@ -130,9 +133,10 @@ public class InscripcionData {
         
     public List <Materia> obtenerMateriasCursadas(int id){ //idAlumno
         ArrayList<Materia>  materias = new ArrayList<>();
-        String sql = "SELECT inscripcion.idMateria, nombre, anio FROM inscripcion,"
-                    + "materia WHERE inscripcion.idMateria = materia.idMateria" +
-                        " AND inscripcion.idAlumno = ?;";
+        String sql = "SELECT inscripcion.idMateria, materia.nombre, materia.anio, inscripcion.nota " +
+                     "FROM inscripcion, materia " +
+                     "WHERE inscripcion.idMateria = materia.idMateria " +
+                     "AND inscripcion.idAlumno = ?;";
     try {
         PreparedStatement ps=con.prepareStatement(sql);
         ps.setInt(1, id);
