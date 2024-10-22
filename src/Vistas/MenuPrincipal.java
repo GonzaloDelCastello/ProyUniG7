@@ -4,16 +4,37 @@
  */
 package Vistas;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JDesktopPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author bruno
  */
-public class MenuPrincipal extends javax.swing.JFrame {
+class FondoPanel extends JPanel {
+    private Image imagen;
 
+    public FondoPanel() {
+        // Cargar la imagen en el constructor
+        imagen = new ImageIcon(getClass().getResource("/imagenes/o_1669289657.jpg")).getImage();
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g); // Llama al método de la superclase
+        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this); // Dibuja la imagen
+    }
+}
+public class MenuPrincipal extends javax.swing.JFrame {
+    FondoPanel fondo = new FondoPanel();
     /**
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
+        this.setContentPane(fondo);
         initComponents();
     }
 
